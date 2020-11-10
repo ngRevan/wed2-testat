@@ -1,0 +1,103 @@
+@mixin theme-default {
+  .button {
+    &.primary {
+      border-color: #008cba;
+
+      &.active,
+      &:hover {
+        background-color: #008cba;
+      }
+    }
+
+    &.warn {
+      border-color: #f44336;
+
+      &.active,
+      &:hover {
+        background-color: #f44336;
+      }
+    }
+  }
+
+  .form-field {
+    input,
+    textarea {
+      &:hover,
+      &:focus {
+        border-color: #008cba;
+      }
+    }
+  }
+}
+
+@mixin theme-light {
+  @include theme-default();
+
+  $background-color: #fafafa;
+
+  background: $background-color;
+
+  .button {
+    background: $background-color;
+    color: black;
+    border-color: #e7e7e7;
+
+    &.active,
+    &:hover {
+      background-color: #e7e7e7;
+    }
+  }
+
+  .form-field {
+    input,
+    textarea {
+      color: black;
+      border-color: #e7e7e7;
+    }
+  }
+
+  .card {
+    background: #fff;
+    color: black;
+
+    .card-subtitle {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}
+
+@mixin theme-dark {
+  @include theme-default();
+
+  $background-color: #303030;
+
+  background: $background-color;
+  color: #fff;
+
+  .button {
+    background: $background-color;
+    color: #fff;
+    border-color: #424242;
+
+    &.active,
+    &:hover {
+      background-color: #424242;
+    }
+  }
+
+  .form-field {
+    input,
+    textarea {
+      color: #fff;
+    }
+  }
+
+  .card {
+    background: #424242;
+    color: #fff;
+
+    .card-subtitle {
+      color: hsla(0, 0%, 100%, 0.7);
+    }
+  }
+}

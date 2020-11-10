@@ -1,0 +1,24 @@
+<h1>Create a new note</h1>
+
+<form action="/notes" method="POST">
+  <div class="form-field">
+    <label for="note-form-title">Title</label>
+    <input type="text" name="title" id="note-form-title" maxlength="50" />
+  </div>
+  <div class="form-field">
+    <label for="note-form-description">Description</label>
+    <textarea name="description" id="note-form-description" required maxlength="1000" rows="6"></textarea>
+  </div>
+  <div class="form-field">
+    <label for="note-form-priority">Priority</label>
+    <input type="number" name="priority" id="note-form-priority" required min="1" max="5" value="3" />
+  </div>
+  <div class="form-field">
+    <label for="note-form-due-at">Due at</label>
+    <input type="date" name="dueAt" id="note-form-due-at" required min="{{today}}" value="{{today}}" />
+  </div>
+  <div class="form-actions">
+    <a class="button" href="/notes">Cancel</a>
+    <button class="button primary" type="submit" class="button">Create</button>
+  </div>
+</form>

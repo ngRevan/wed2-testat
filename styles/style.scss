@@ -1,12 +1,141 @@
+@import 'themes';
+
+html,
 body {
-  padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  color: green;
+body {
+  font: 400 14px/20px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-a {
-  color: #00b7ff;
+.theme-light {
+  @include theme-light();
+}
+
+.theme-dark {
+  @include theme-dark();
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+
+  &:hover {
+    transition-duration: 0.4s;
+    transition-property: background-color;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 8px 16px;
+
+  label {
+    width: 150px;
+  }
+
+  input,
+  textarea {
+    background: transparent;
+    padding: 8px;
+    font: inherit;
+    border: 1px solid;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    transition-property: border-color;
+    outline: none;
+    flex: 1 1 auto;
+  }
+}
+
+.form-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 8px 16px;
+  height: 40px;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-end;
+}
+
+.card {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  .card-title {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .card-subtitle {
+    font-size: 12px;
+    margin-bottom: 16px;
+
+    &:not(:first-child) {
+      margin-top: -8px;
+    }
+  }
+
+  .card-content {
+    margin-bottom: 16px;
+    flex: 1 1 auto;
+  }
+
+  .card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -8px;
+
+    .button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .card {
+    width: 300px;
+    margin: 8px 16px;
+  }
+}
+
+.note-title,
+.note-subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

@@ -1,0 +1,28 @@
+<div class="note-actions">
+  <a class="button" href="notes/create">Create new Note</a>
+  <a class="button" href="notes?theme={{themeButton.theme}}">{{themeButton.text}}</a>
+  {{#each sortButtons}}
+    <a class="button {{active}}" href="notes?sortField={{field}}&sortDirection={{direction}}">{{text}}</a>
+  {{/each}}
+  <a class="button" href="notes?showFinished={{showFinishedButton.value}}">{{showFinishedButton.text}}</a>
+</div>
+<div class="card-list">
+  {{#each notes}}
+    <div class="card">
+      <div class="card-title note-title">
+        <span>{{title}}</span>
+        <span>{{priority}}</span>
+      </div>
+      <div class="card-subtitle note-subtitle">
+        <span>Due at: {{formatDate dueAt}}</span>
+        <input type="checkbox" disabled {{#if isFinished}}checked{{/if}} />
+      </div>
+      <div class="card-content">
+        {{description}}
+      </div>
+      <div class="card-actions">
+        <a class="button primary" href="/notes/edit/{{_id}}">Edit</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
