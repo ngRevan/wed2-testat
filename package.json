@@ -6,6 +6,10 @@
   "scripts": {
     "start": "tsc && cross-env DEBUG=wed2-testat:* NODE_ENV=development node --experimental-modules --es-module-specifier-resolution=node ./dist/bin/www.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngRevan/wed2-testat.git"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "^2.6.9",
