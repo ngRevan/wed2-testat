@@ -8,6 +8,11 @@ body {
 
 body {
   font: 400 14px/20px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+
+  main {
+    padding: 16px;
+  }
+
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -24,6 +29,7 @@ body {
 
 .button {
   display: inline-block;
+  box-sizing: border-box;
   padding: 8px 16px;
   margin: 0;
   text-align: center;
@@ -44,7 +50,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin: 8px 16px;
+  margin: 8px 0;
 
   label {
     width: 150px;
@@ -73,11 +79,32 @@ body {
   height: 40px;
 }
 
+.note-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .button {
+    width: 150px;
+  }
+
+  .main-actions,
+  .sort-actions,
+  .filter-actions {
+    padding-bottom: 16px;
+  }
+}
+
 .form-actions {
   display: flex;
   flex-direction: row;
 
   justify-content: flex-end;
+
+  .button:not(:last-child) {
+    margin-right: 8px;
+  }
 }
 
 .card {
@@ -94,9 +121,18 @@ body {
     font-weight: 500;
   }
 
+  .card-title,
+  .card-subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .card-subtitle {
     font-size: 12px;
     margin-bottom: 16px;
+    flex-wrap: wrap;
 
     &:not(:first-child) {
       margin-top: -8px;
@@ -126,16 +162,80 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 8px 0;
 
   .card {
-    width: 300px;
-    margin: 8px 16px;
+    width: 400px;
+    margin-right: 8px;
+    margin-bottom: 16px;
   }
 }
 
-.note-title,
-.note-subtitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.note-title {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.no-entries-notification {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 1280px) {
+  .card-list {
+    .card {
+      width: 300px;
+    }
+  }
+
+  .note-actions {
+    .main-actions {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form-field {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+
+    .button {
+      margin-right: 0 !important;
+      margin-bottom: 4px;
+    }
+  }
+
+  .card-list {
+    flex-direction: column;
+
+    .card {
+      width: 100%;
+      margin: 8px 0;
+    }
+  }
+
+  .note-actions {
+    flex-direction: column;
+
+    .main-actions,
+    .sort-actions,
+    .filter-actions {
+      display: flex;
+      flex-direction: column;
+
+      .button {
+        width: 100%;
+      }
+
+      .button:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
 }
